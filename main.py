@@ -1,6 +1,7 @@
 from data import question_data
 from question_model import Question
 from quiz_brain import QuizBrain
+from ui import QuizUI
 
 question_bank = list()
 
@@ -11,9 +12,5 @@ for index in question_data:
     question_bank.append(new_question)
 
 quiz = QuizBrain(question_bank)
-while quiz.still_has_questions():
-    quiz.next_question()
-
-print(f"You've completed the quiz!")
-print(f"Your final score is: {quiz.score}/{quiz.question_number}")
+quiz_ui = QuizUI(quiz_brain=quiz)
 
